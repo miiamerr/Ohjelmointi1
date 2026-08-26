@@ -3,10 +3,11 @@ import math
 import random
 
 kala = float(input("Syötä kuhan pituus senttimetreinä:"))
+kuha = 37
 
 if kala < 37:
     pituus = kala - 37
-    print("Laske kuha takaisin järveen. Kuha on alimittainen.")
+    print(f"Laske kuha takaisin järveen. Kuha on {pituus} senttiä alimittainen.")
 
 
 elif kala >= 37:
@@ -16,6 +17,7 @@ elif kala >= 37:
 
 hyttiluokka = int(input("Syötä laivan hyttiluokkasi:"))
 
+if LUX 
 
 # tehtävä 3
 
