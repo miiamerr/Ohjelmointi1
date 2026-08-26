@@ -11,13 +11,13 @@ if kala < 37:
 
 
 elif kala >= 37:
-    print("Voit pyydystää kalan.") 
+    print("Voit pyydystää kuhan.") 
 
 # tehtävä 2
 
 hyttiluokka = int(input("Syötä laivan hyttiluokkasi:"))
 
-if LUX 
+
 
 # tehtävä 3
 
