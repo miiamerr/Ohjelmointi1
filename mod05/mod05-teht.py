@@ -105,3 +105,26 @@ print("Tervetuloa!!!")
 
 if käyttäjätunnus or salasana != True:
     print("Pääsy evätty")
+
+
+# tehtävä 6
+
+# n=4n/N, jossa n on ympyrän sisään osuvat pisteet ja N kaikki arvotut pisteet
+# Piste on ympyrän sisällä, jos x^2+y^2<1
+
+N = 100 #kaikkien pisteiden lukumäärä
+n = 0 # lasketaan ympyrään osuneiden pisteiden lukumäärä
+counter = 0
+
+while counter < N:
+    counter += 1
+    x = random.uniform(-1,1)
+    y = random.uniform(-1,1)
+    print(f"{counter} Arvotun pisteen koordinaatit, x: {x}, y: {y}")
+    if x ** 2 + y ** 2 < 1:
+        n = n +1
+        print("Piste on ympyrän sisällä.")
+
+print(f"Pisteitä arvottu yhteensä {N}, joista ympyrän sisälle osui {n} kpl.")
+
+#TODO: Laskee pii annetulla kaavalla ja tulostaa . Kokeile myös eri N arvoilla.

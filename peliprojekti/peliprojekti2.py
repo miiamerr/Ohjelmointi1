@@ -2,12 +2,14 @@
 pelaaja = input ('Mikä sinun nimesi on? ') 
 print('Hauska tavata', pelaaja + '!')
 
+ikäraja = 13
 ikä = float(input("Anna ikäsi: "))
 if ikä >= 13:
     print("Tervetuloa seikkailu-peliin", pelaaja + "!!!!")
-else:
+elif ikä < ikäraja:
     print("Pelaaja on alaikäinen")
     print("Seikkailu-peli sammutetaan")
+    
 
 
 peli_käynnissä = True

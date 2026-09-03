@@ -7,4 +7,6 @@ Tein tehtävät 1, 2, 3, 4, 5 ja 6.
 ## Moduuli 4
 Tein tehtävät 1, 2, 3 ja 4. 
 ## Moduuli 5
-Tein tehtävät 1, 2, 4 ja 5.
+Tein tehtävät 1, 2, 4, 5 ja 6 puoleen väliin.
+## Moduuli 6
+Tein tehtävät 2.
