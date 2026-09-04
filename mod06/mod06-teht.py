@@ -49,3 +49,17 @@ if alkuluku:
     print("Luku on alkuluku")
 else: 
     print("Luku ei ole alkuluku")
+
+
+# tehtävä 4
+
+kaupungit = []
+kaupunki =input("Anna kaupungin nimi: ")
+while kaupunki != "":
+    kaupungit.append(kaupunki)
+    kaupunki = input("Anna seuraava kaupunki: ")
+
+for kaupunki in kaupungit:
+    print(f"Kaupungit: {kaupunki}: ")
+
+
