@@ -25,6 +25,16 @@ elif tuuma < 0:
 
 # tehtävä 3
 
+luvut = []
+
+while True:
+    luku = input("Anna luku: ")
+
+    if luku == "":
+        break
+
+    luvut.append(int(luku))
+
 
 # tehtävä 4
 
