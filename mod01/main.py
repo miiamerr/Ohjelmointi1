@@ -1,25 +1,15 @@
 import math
+import random
 
-t = float(input("Anna esineen alkukorkeus (m): "))
-g = 9.81
-s = 0.5 * g * t**2
+numbers = []
 
-print(f"Esine putosi: {s:.2f} metriä. ")
+while True:
+    input_number = input("Anna kokonaisluku: ")
+    if input_number == "":
+        break
+    num = int(input_number)
+    numbers.append(int(input_number))
+numbers.sort(revers=True)
+for num in range(2):
+    print(numbers[num])
 
-t = float(input("Anna putoamisaika sekunteina: "))
-while t > 0:
-    g = 9.81
-    s = 0.5 * g * t**2
-    print(f"Putoamismatka: {s} metriä")
-    t = float(input("Anna putoamisaika sekunteina: "))
-
-
-
-
-
-
-
-
-
-    
-    

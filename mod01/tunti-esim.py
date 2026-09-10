@@ -3,6 +3,7 @@
 # tehtävä 1
 
 import math
+print("\nYmpyrän ja neliön pinta-alat")
 r = float(input("Anna ympyrän säteen pituus: "))
 p = float(input("Anna neliön sivun pituus: "))
 pinta_ala = math.pi * r**2
@@ -11,6 +12,7 @@ print(f"Ympyrän pinta-ala on {pinta_ala:.2f} ja neliön pinta-ala on {A:.2f}.")
 
 # tehtävä 2
 
+print("\nHedelmien kilohinta")
 banaani = float(input("Anna banaanien määrä (kg): "))
 omena = float(input("Anna omenien määrä (kg): "))
 appelsiini = float(input("Anna appelsiinien määrä (kg): "))
@@ -30,6 +32,7 @@ print(f"Yhteensä: {summa} € ")
 # tehtävä 3 
 
 import random
+print("\nNoppasimulaattori")
 noppa1 = random.randint(1,6)
 noppa2 = random.randint(1,20)
 
@@ -41,6 +44,7 @@ print(f"Noppien silmälukujen summa: {summa}")
 
 # tehtävä 4
 
+print("\nÄänestysoikeus")
 ikä = float(input("Kuinka vanha olet: "))
 äänestysoikeus = 18 - ikä
 
@@ -49,13 +53,41 @@ if ikä >= 18:
 elif ikä < 18:
     print(f"Et voi äänestää Suomen eduskuntavaaleissa, sillä olet {äänestysoikeus} vuotta liian nuori.")
 
-# tehtävä 5 jatka tätä!!!!
+# tehtävä 5 
 
+print("\nSähkönkulutus")
 sähkön_kulutus = float(input("Anna sähkön kulutus kilowattitunteina (kWh): "))
 hinta = 0
 
 if sähkön_kulutus <= 50:
-    print("")
+    hinta = sähkön_kulutus * 10
+    print(f"Kun sähköä kuluu {sähkön_kulutus} kWh, sähkö maksaa {hinta} senttiä.")
+
+elif sähkön_kulutus <= 200:
+    hinta = 50 * 10
+    hinta = hinta (sähkön_kulutus - 50) * 8
+    print(f"Sähkön kulutus: {hinta} senttiä.")
+
+else:
+    hinta = 50 * 10 + 150 * 8 + (sähkön_kulutus - 200) * 6
+    print(f"Sähkön kulutus: {hinta} senttiä.")
+
+# tehtävä 6
+fysiikka = int(input("Anna koulumenestyksesi fysiikasta (0-100): "))
+kemia = int(input("Anna koulumenestyksesi kemiasta (0-100): "))
+matematiikka = int(input("Anna koulumenestyksesi matematiikasta (0-100): "))
+
+
+if fysiikka and matematiikka > 90:
+    print("Stipendi myönnetään.")
+elif kemia > 95:
+    print("Stipendi myönnetään.")
+elif fysiikka or kemia or matematiikka < 50:
+    print(f"Stipendia ei myönnetty koska tulos oli alle 50.")
+else:
+    print("Stipendiä ei myönnetty.")
+
+
 
 ## Moduuli 5
 # tehtävä 7
