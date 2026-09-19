@@ -34,8 +34,9 @@ while peli_käynnissä:
         print("Peli sammutetaan")
     elif valinta == "K":
         print("Ehostetaan tyyliäsi! ")
-        väri = input ("Valitse hahmosi väri?: ")
+        väri = input ("Valitse hahmosi väri: ")
         print("Tyylikästä,", väri, "sopii sinulle hyvin!")
+        
     
          
 

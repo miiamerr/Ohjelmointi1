@@ -129,3 +129,33 @@ while t > 0:
 
 ## Moduuli 6
 # tehtävä 10
+anna_luku = int(input("Anna kokonaisluku: "))
+for i in range(0, anna_luku +1, 2):
+    print(i)
+if anna_luku <= 0:
+      print("Virheilmoitus: luvun täytyy olla suurempi kuin nolla!")
+
+# tehtävä 11
+# KESKEN
+luvut = []
+
+anna_luku = float(input("Anna luku tai lopeta painamalla välilyöntiä: "))
+while anna_luku != "":
+    luvut.append(anna_luku)
+    float(input("Anna luku tai lopeta painamalla välilyöntiä: "))
+    if anna_luku == "":
+          print(len(luvut))
+
+## Moduuli 7
+# tehtävä 11 KESKEN
+
+
+print("\n===Funktio harjoitus===")
+def summa(luku1, luku2):
+    summa = luku1 + luku2
+    return summa
+   
+luku1 = input("Anna ensimmäinen kokonaisluku: ")
+luku2 = input("Anna toinen kokonaisluku: ")
+yhteenlasku = luku1 + luku2
+print(yhteenlasku)
