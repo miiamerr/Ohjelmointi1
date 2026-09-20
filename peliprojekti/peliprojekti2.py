@@ -5,10 +5,10 @@ print('Hauska tavata', pelaaja + '!')
 ikäraja = 13
 ikä = float(input("Anna ikäsi: "))
 if ikä >= 13:
-    print("Tervetuloa seikkailu-peliin", pelaaja + "!!!!")
+    print("\nTervetuloa Rekku Rescue-peliin", pelaaja + "!!!!")
 elif ikä < ikäraja:
     print("Pelaaja on alaikäinen")
-    print("Seikkailu-peli sammutetaan")
+    print("\nRekku Rescue sammutetaan")
     
 
 

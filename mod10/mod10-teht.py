@@ -8,3 +8,5 @@ class Hissi:
     def siirry_kerrokseen(self, kohde_kerros):
         if kohde_kerros < self.alin_kerros or kohde_kerros > self-self.ylin_kerros:
             print(f"Virhe! Kerrosta ei ole olemassa.")
+
+hissi1 = Hissi
