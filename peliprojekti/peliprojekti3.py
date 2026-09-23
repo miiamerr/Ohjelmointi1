@@ -12,7 +12,7 @@ elif ikä < ikäraja:
 peli_käynnissä = True
 
 while peli_käynnissä:
-    print("Valitse minne mennään: Uusi peli (U), Varustevalikko (V) tai Lopeta peli (L): ")
+    print("Valitse minne mennään: Uusi peli (U), Tietoa Rekusta (T) Varustevalikko (V) tai Lopeta peli (L): ")
     valinta = input("Anna komento: ")
     if valinta == "U":
         print("\n-----Uusi peli!-----")
@@ -24,10 +24,18 @@ while peli_käynnissä:
         if arvaus1 != "1.":
             print("Rekkua ei löytynyt.")
             print("Jatketaan etsimistä!")
-        
     elif valinta == "L":
         print("Lopetetaan peli")
         print("Peli sammutetaan")
+    elif valinta == "T":
+        def tietolista(tieto):
+            print("Rekun tiedot: ")
+            for t in tieto:
+                print("- " + t)
+            return
+        tiedot = ["Rekku", "Chihuahua", "3v.", "Vaalea turkki"]
+        tietolista(tiedot)
+
     elif valinta == "V":
         tavarat = ["koiran namit", "Rekun kuva", "Rekun hihna", "Taskulamppu", "Puhelin"]
         valitut = []
@@ -38,8 +46,8 @@ while peli_käynnissä:
          break
         valitut.append(valinta)
     print("Valitut tavarat: ", valitut)
-        
-        
+    break 
+
         
     
          
