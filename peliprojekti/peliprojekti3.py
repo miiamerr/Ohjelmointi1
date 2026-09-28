@@ -14,6 +14,7 @@ peli_käynnissä = True
 while peli_käynnissä:
     print("Valitse minne mennään: Uusi peli (U), Tietoa Rekusta (T) Varustevalikko (V) tai Lopeta peli (L): ")
     valinta = input("Anna komento: ")
+    
     if valinta == "U":
         print("\n-----Uusi peli!-----")
         print("3, 2, 1, Peli alkaa: ")
@@ -27,6 +28,7 @@ while peli_käynnissä:
     elif valinta == "L":
         print("Lopetetaan peli")
         print("Peli sammutetaan")
+
     elif valinta == "T":
         def tietolista(tieto):
             print("Rekun tiedot: ")
