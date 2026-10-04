@@ -8,9 +8,10 @@ Projektin toisessa vaiheessa käytin toistorakennetta while ja valintarakennetta
 Projektin kolmannessa vaiheessa rakensin kolme erilaista funktiota (def) päävalikon toiminnoille. Funktiot mahdollistavat yksinkertaisemman ohjelmanosien koodaamisen ja välttää toistamisen. 
 ## Peliprojekti4 
 Rekku Rescue pelissä on 4 luokkaa: Pelaaja, Koira, Maailma ja Esine. 
-Pelaajalla on 4 eri parametriä: nimi, ikä, esineet ja sijainti. 
+Pelaajalla on 4 eri parametriä: nimi, ikä, esineet ja sijainti. Tämän lisäksi pelaajalla on 2 metodia, liiku ja etsi, jonka avulla pelaaja etsii Rekku-koiraa.
 Koiralla on 5 eri parametriä: nimi, rotu, ikä, väri ja metodi nimeltä haukahdus.
 Maailmalla on 2 eri parametriä: nimi ja esine. Tämän lisäksi, sillä on alaluokat: Koti, Piha ja Puutarha.
 Esineellä on 1 parametri: nimi. 
 Jokainen luokka on jaettu omaan moduuliin ja yhdistetty peli kansioon, jossa seikkailupeli toteutuu. 
 ## Peliprojekti 5
+Tein oman kansion peliprojekti kansion sisälle, jossa on kaksi eri tekstitiedostoa nimeltä intro.txt ja ohjeet.txt, jotka tulostavat pelin alkuun esittelytekstin sekä peliohjeet. Alkutekstit ovat yhdistetti moduuliin, jossa peli toteutuu. 

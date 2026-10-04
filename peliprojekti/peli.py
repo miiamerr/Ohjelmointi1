@@ -4,6 +4,41 @@ from maailma.maailma import Maailma
 from pelaaja.pelaaja import Pelaaja
 from maailma.maailma import Koti, Piha, Puutarha
 
+def tallenna_peli(pelaaja, sijainti):
+    with open("tiedot.txt", "w") as tiedosto:
+        tiedosto.write(pelaaja + "\n")
+        tiedosto.write(sijainti + "\n")
+
+def lataa_peli():
+    try:
+        with open("tiedot.txt", "r") as tiedosto:
+            pelaaja = tiedosto.readline().strip()
+            sijainti = tiedosto.readline().strip()
+        return pelaaja, sijainti
+    
+    except FileNotFoundError:
+        return None
+
+tiedot = lataa_peli() # kysytään, löytyykö vanhaa tallennusta
+
+if tiedot:
+    print("Tallennettu peli löydetty!")
+    pelaaja, sijainti = tiedot
+
+    print("Pelaaja", pelaaja)
+    print("Jäit viimeksi paikkaan: ", sijainti)
+    
+    jatka = input("Haluatko jatkaa peliä: Kyllä (K) vai Ei (E)? ")
+
+    if jatka != "K":
+        pelaaja = input("Anna pelaajallesi nimi: ")
+        sijainti = "makuuhuone"
+
+else:
+    pelaaja = input("Anna pelaajallesi nimi: ")
+    ikä = input("Anna pelaajallesi ikä: ")
+    sijainti = "makuuhuone"
+
 
 with open("peliprojekti/alkutekstit/intro.txt", "r", encoding="utf-8") as tiedosto:
     intro = tiedosto.read()
@@ -51,12 +86,26 @@ varusteet = [
 ]
 
 # Pelaaja luoka pääohjelma, joka kysyy käyttäjältä
-# pelaajan ikää.
+# pelaajan nimeä sekä ikää.
+pelaajan_nimi = input("Anna pelaajallesi nimi: ")
 pelaajan_ikä = input("Anna pelaajallesi ikä: ")
-pelaaja1 = Pelaaja("Pelaaja1", pelaajan_ikä, makuuhuone)
+pelaaja1 = Pelaaja(pelaajan_nimi, pelaajan_ikä, makuuhuone)
 
 # Koira-luokan pääohjelma, johon on kirjattu olion tiedot.
 koira = Koira("Rekku", 3, "Chihuahua", "vaalea")
+
+# Funktio lopettaa ja tallentaa pelin tiedot heti kun käyttäjä
+# lopettaa itse pelin kirjoittamalla kenttään "L".
+def kysy_valinta(kysymys):
+    valinta = input(kysymys)
+                        
+    if valinta == "L":
+        tallenna_peli(pelaaja, sijainti)
+        print("Peli tallennettu. Nähdään myöhemmin!")
+        exit()
+
+    return valinta
+
 
 # Pelin lopetus kun Rekku on löytynyt, funktio ja ehtorakenne
 def pelin_lopetus():
@@ -98,7 +147,7 @@ while True:
             for varuste in varusteet:
                 print(varuste.nimi)
 
-            valinta = input("Kirjoita varusteen nimi: ")
+            valinta = kysy_valinta("Kirjoita varusteen nimi: ")
             valitut = []
 
             for varuste in varusteet:
@@ -146,7 +195,7 @@ while peli_käynnissä:
         print("1. Keittiö")
         print("2. Olohuone")
 
-        valinta = input("Minne haluat mennä? ")
+        valinta = kysy_valinta("Minne haluat mennä? ")
         print() # tyhjä rivi
 
         if valinta == "1":
@@ -161,7 +210,7 @@ while peli_käynnissä:
         print("3. Etsi vihjeitä")
         print() # tyhjä rivi
 
-        valinta = input("Valitse minne haluat mennä? ")
+        valinta = kysy_valinta("Valitse minne haluat mennä? ")
 
         if valinta == "1":
             pelaaja1.liiku(puutarha)
@@ -179,7 +228,7 @@ while peli_käynnissä:
         print("2. = Piha")
         print() # tyhjä rivi
 
-        valinta = input("Minne haluat mennä? ")
+        valinta = kysy_valinta("Minne haluat mennä? ")
 
         if valinta == "1":
             pelaaja1.liiku(makuuhuone)
@@ -192,7 +241,7 @@ while peli_käynnissä:
         print("2. = Etsi vihjeitä")
         print() # tyhjä rivi
 
-        valinta = input("Mitä aiot tehdä? ")
+        valinta = kysy_valinta("Mitä aiot tehdä? ")
         print() # tyhjä rivi
 
         if valinta == "1":
@@ -210,7 +259,7 @@ while peli_käynnissä:
         print("1. = Etsi Rekku")
         print("2. = Palaa takaisin pihalle")
 
-        valinta = input ("Mitä aiot tehdä? ")
+        valinta = kysy_valinta("Mitä aiot tehdä? ")
         print() # tyhjä rivi
 
         if valinta == "1":
