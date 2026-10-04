@@ -1,0 +1,8 @@
+
+PELIOHJEET:
+- Sinun täytyy olla vähintään 13-vuotias, että pystyt pelaamaan 
+kyseistä peliä. Pelin ikäraja on siis K12.
+- Liiku paikasta toiseen numeroiden 1-3 avulla. 
+- Etsi Rekkua komennolla: "etsi".
+- Pystyt lopettamaan pelin komennolla (L) missä tahansa vaiheessa.
+Onnea matkaan, toivottavasti onnistut löytämään Rekun!

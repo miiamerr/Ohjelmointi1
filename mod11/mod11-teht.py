@@ -40,3 +40,4 @@ lehti1.tulosta_tiedot()
 
 
 # tehtävä 2
+

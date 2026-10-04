@@ -1,0 +1,1 @@
+from .maailma import Maailma
