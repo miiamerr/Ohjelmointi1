@@ -1,25 +1,19 @@
-
 from esine.esine import Esine
 from koira.koira import Koira
 from maailma.maailma import Maailma
 from pelaaja.pelaaja import Pelaaja
 from maailma.maailma import Koti, Piha, Puutarha
 
-try: 
-    with open("intro.txt", "r") as tiedosto:
-        intro = tiedosto.read()
 
-    with open("ohjeet.txt", "r") as tiedosto:
-        ohjeet = tiedosto.read()
+with open("peliprojekti/alkutekstit/intro.txt", "r", encoding="utf-8") as tiedosto:
+    intro = tiedosto.read()
 
-    print(intro)
-    print() # tekee tyhjän rivin tekstien väliin
-    print(ohjeet)
-except FileNotFoundError:
-    print("Tiedostoa ei löydy.")
-except IOError:
-    print("Tiedoston käsittelyssä tapahtui virhe.")
+print(intro)
 
+with open("peliprojekti/alkutekstit/ohjeet.txt", "r", encoding="utf-8") as tiedosto:
+    ohjeet = tiedosto.read()
+
+print(ohjeet)    
 
 # Peli alkaa, että käyttäjältä kysytään heidän nimeä ja ikää
 # Jos pelaajan ikä on alle 13 vuotta, peli sammuu automaattisesti.
@@ -28,15 +22,17 @@ print('Hauska tavata', nimi + '!')
 ikäraja = 13
 ikä = float(input("Anna ikäsi: "))
 if ikä >= 13:
-    print("\n---TERVETULOA REKKU RESCUEEN---", nimi + "!!!!")
+    print("\nTERVETULOA REKKU RESCUEEN", nimi + "!!!!")
     print() # tulostaa tyhjän rivin tekstien väliin
     print("\nRakas koirasi Rekku on kadonnut ja täytyy löytää välittömästi!")
 elif ikä < ikäraja:
     print("Pelaaja on alaikäinen")
     print("\nRekku Rescue sammutetaan")
     
-
 # Maailma luokan alaluokkien: Koti, Piha ja Puutarha pääohjelma.
+# makuuhuoneen ja keittiö paikan kohdalla on "None", koska niillä ei
+# ole pelille oleellista roolia/paikkaa. "None" komento ohittaa paikka 
+# parametrin.
 makuuhuone = Koti("Makuuhuone", None, "Koiranpeti")
 keittiö = Koti("Keittiö", None, "Koiranluu")
 olohuone = Koti("Olohuone", "Sohva", "Lämmin viltti")
@@ -61,6 +57,21 @@ pelaaja1 = Pelaaja("Pelaaja1", pelaajan_ikä, makuuhuone)
 
 # Koira-luokan pääohjelma, johon on kirjattu olion tiedot.
 koira = Koira("Rekku", 3, "Chihuahua", "vaalea")
+
+# Pelin lopetus kun Rekku on löytynyt, funktio ja ehtorakenne
+def pelin_lopetus():
+    print("\nRekku on löytänyt erittäin uhanalaisen lintulajin, hömötiaisen!")
+    valinta = input("Mitä tehdään: 1. Jätät linnun rauhaan ja lähdette Rekun kanssa kotiin.\n 2. Mene katsomaan lintua lähempää. ")
+
+    if valinta == "1":
+        print("\nHyvää työtä! Luonto kiittää")
+
+    elif valinta == "2":
+        print("Lintu säikähtää ja lentää pois.")
+        print("\nLuontoa täytyy kunnioittaa, joten jätetään lintu rauhaan ensi kerralla.")
+
+    else:
+        print("\nVirheellinen valinta")
 
 # Peli avautuu päävalikkoon, jossa on neljä vaihtoehtoa. 
 # Peli toistuu while-funktion ansiosta ja if-valintarakenne mahdollistaa
@@ -128,74 +139,97 @@ peli_käynnissä = True
 sijainti = makuuhuone
 
 while peli_käynnissä:
-    print("Olet paikassa: ", sijainti.nimi)
+    print("Olet paikassa: ", pelaaja1.sijainti.nimi)
     print("Minne haluat mennä?")
 
-    if sijainti == makuuhuone:
+    if pelaaja1.sijainti == makuuhuone:
         print("1. Keittiö")
         print("2. Olohuone")
 
         valinta = input("Minne haluat mennä? ")
+        print() # tyhjä rivi
 
         if valinta == "1":
-            sijainti = keittiö
+            pelaaja1.liiku(keittiö)
 
         elif valinta == "2":
-            sijainti = olohuone
+            pelaaja1.liiku(olohuone)
 
-    elif sijainti == keittiö:
+    elif pelaaja1.sijainti == keittiö:
         print("1. Puutarha")
         print("2. Olohuone")
         print("3. Etsi vihjeitä")
+        print() # tyhjä rivi
 
         valinta = input("Valitse minne haluat mennä? ")
 
         if valinta == "1":
-            sijainti = puutarha
+            pelaaja1.liiku(puutarha)
 
         elif valinta == "2":
-            sijainti = olohuone
+            pelaaja1.liiku(olohuone)
 
         elif valinta == "3":
-            print("Rekun namipiilosta löytyi tyhjä herkkupussi")
-            print("Onko Rekku käynyt namivarkailla?")
-            print("Jatketaan etsintää!")
+            pelaaja1.etsi()
+            print() # tyhjä rivi
             
 
-    elif sijainti == olohuone:
+    elif pelaaja1.sijainti == olohuone:
         print("1. = Makuuhuone")
         print("2. = Piha")
+        print() # tyhjä rivi
 
         valinta = input("Minne haluat mennä? ")
 
         if valinta == "1":
-            sijainti = makuuhuone
+            pelaaja1.liiku(makuuhuone)
 
         elif valinta == "2":
-            sijainti = piha
+            pelaaja1.liiku(piha)
 
-    elif sijainti == piha:
+    elif pelaaja1.sijainti == piha:
         print("1. = Mene puutarhaan")
         print("2. = Etsi vihjeitä")
+        print() # tyhjä rivi
 
         valinta = input("Mitä aiot tehdä? ")
+        print() # tyhjä rivi
 
         if valinta == "1":
-            sijainti = puutarha
+            pelaaja1.liiku(puutarha)
 
         elif valinta == "2":
+            pelaaja1.etsi()
+            print() # tyhjä rivi
             print("Hyvä, löysit Rekun tassunjälkiä pihalta!")
             print("Mihin tassujäljet vievät? ")
 
-    elif sijainti == puutarha:
+    elif pelaaja1.sijainti == puutarha:
         print("Olet puutarhassa, jossa on paljon kauniita kukkia.")
+        print() # tyhjärivi
         print("1. = Etsi Rekku")
         print("2. = Palaa takaisin pihalle")
 
-        valinta = input ("Mitä aiot tehdä?")
+        valinta = input ("Mitä aiot tehdä? ")
+        print() # tyhjä rivi
 
         if valinta == "1":
-            print(koira.haukahdus)
+            koira.haukahdus()
+            print() # tyhjä rivi
+            print("Kuulitko tuon? Se oli Rekun haukahdus!!")
+            print() # tyhjä rivi
+            koira.haukahdus()
+            print() # tyhjä rivi
             print("Etsi Rekkua kukkien seasta...") 
-            print("Mahtavaa, löysit Rekun!!")
-            break
+            koira.haukahdus()
+            print() # tyhjä rivi
+            print("Löysit Rekun!!")
+            print("Hetkonen...")
+
+            pelin_lopetus()
+            break 
+            
+            
+       
+
+
