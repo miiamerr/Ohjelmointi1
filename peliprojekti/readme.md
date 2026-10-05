@@ -16,3 +16,5 @@ Jokainen luokka on jaettu omaan moduuliin ja yhdistetty peli kansioon, jossa sei
 ## Peliprojekti 5
 Tein oman kansion peliprojekti kansion sisälle, jossa on kaksi eri tekstitiedostoa nimeltä intro.txt ja ohjeet.txt, jotka tulostavat pelin alkuun esittelytekstin sekä peliohjeet. Alkutekstit ovat yhdistetti moduuliin, jossa peli toteutuu. 
 Tämän lisäksi tein oman tekstitiedoston nimeltä tiedot.txt, jonka avulla pelaajan tiedot tallentuvat pelaajan lopettaessa pelin. Pelaaja pystyy halutessaan jatkaa peliä samasta kohtaan mihin se on aiemmin jäänyt.
+## Kestävä kehitys
+Seikkailupeli ottaa kantaa kestävään kehitykseen eliöiden ja luonnon suojelemisella. 
